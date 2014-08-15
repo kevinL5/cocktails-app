@@ -1,0 +1,21 @@
+<h1>List's of cocktails</h1>
+
+<%= link_to 'Create a new cocktail', new_cocktail_path, class: "btn btn-default" %>
+
+<%= form_for(@ingredient) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>
+
+
+<ul class="list-unstyled"><% @cocktails.each do |cocktail| %>
+    <li><h3>Name: <%= cocktail.name %></h3>
+        <h4>Description: <%= cocktail.description %></h4>
+
+        <%= link_to 'Details', cocktail_path(cocktail), class: "btn btn-primary" %>
+    </li>
+    <% end %>
+  </ul>
+
